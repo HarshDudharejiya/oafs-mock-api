@@ -1,0 +1,147 @@
+{
+  "enquiries": [
+    {
+      "id": 1768467557446,
+      "uid": "ENQ/2026/0001",
+      "title_id": "1",
+      "name": "John",
+      "surname": "Doe",
+      "contact_number": "123456789",
+      "email": "john@example.com",
+      "country": "IN",
+      "sector": "1",
+      "enquiry": "Test enquiry",
+      "status": "open",
+      "created_at": 1768467557
+    },
+    {
+      "id": 1768475993856,
+      "uid": "ENQ/2026/0002",
+      "title_id": "1",
+      "name": "Harsh",
+      "surname": "Dudharejiya",
+      "email": "harshjdudhrejiya@gmail.com",
+      "contact_number": "06355040996",
+      "country": "IN",
+      "sector": "1",
+      "sector_other": "",
+      "subsector": null,
+      "enquiry": "sfsdfsdf",
+      "notes": null,
+      "language": "en",
+      "ip_address": "172.20.0.6",
+      "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",
+      "timestamp": 1768475993,
+      "source": "drupal_portal",
+      "user_id": 0,
+      "status": "open",
+      "created_at": 1768475993
+    },
+    {
+      "id": 1768476268504,
+      "uid": "ENQ_2026_0003",
+      "title_id": "1",
+      "name": "Harsh",
+      "surname": "Dudharejiya",
+      "email": "harshjdudhrejiya@gmail.com",
+      "contact_number": "06355040996",
+      "country": "IN",
+      "sector": "2",
+      "sector_other": "",
+      "subsector": null,
+      "enquiry": "fdsffdsf",
+      "notes": null,
+      "language": "en",
+      "ip_address": "172.20.0.6",
+      "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",
+      "timestamp": 1768476268,
+      "source": "drupal_portal",
+      "user_id": 0,
+      "status": "open",
+      "created_at": 1768476268
+    },
+    {
+      "id": 1768476437425,
+      "uid": "ENQ_2026_0004",
+      "title_id": "1",
+      "name": "Harsh",
+      "surname": "Dudharejiya",
+      "email": "harshjdudhrejiya@gmail.com",
+      "contact_number": "06355040996",
+      "country": "IN",
+      "sector": "1",
+      "sector_other": "",
+      "subsector": null,
+      "enquiry": "sdfsdfsdfsd",
+      "notes": null,
+      "language": "en",
+      "ip_address": "172.20.0.6",
+      "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",
+      "timestamp": 1768476437,
+      "source": "drupal_portal",
+      "user_id": 0,
+      "status": "open",
+      "created_at": 1768476437
+    }
+  ],
+  "files": [],
+  "directors": [],
+  "sectors": [
+    {"id": 1, "name": "Banking"},
+    {"id": 2, "name": "Insurance"},
+    {"id": 3, "name": "Investments"}
+  ],
+  "outcomes": [
+    {"id": 1, "name": "Upheld"},
+    {"id": 2, "name": "Not Upheld"},
+    {"id": 3, "name": "Partially Upheld"}
+  ],
+  "not_upheld_reasons": [
+    {"id": 1, "name": "Out of Jurisdiction"},
+    {"id": 2, "name": "No Merit"},
+    {"id": 3, "name": "Settled"}
+  ],
+  "issues": [
+    {"id": 1, "sector_id": 1, "name": "Loan Processing", "code": "LOAN-001"},
+    {"id": 2, "sector_id": 1, "name": "Credit Card Fees", "code": "CCF-001"},
+    {"id": 3, "sector_id": 2, "name": "Claim Denial", "code": "CLAIM-001"}
+  ],
+  "products": [
+    {"id": 1, "sector_id": 1, "name": "Home Loan", "code": "HL-001"},
+    {"id": 2, "sector_id": 1, "name": "Credit Card", "code": "CC-001"},
+    {"id": 3, "sector_id": 2, "name": "Health Insurance", "code": "HI-001"}
+  ],
+  "providers": [
+    {"id": 1, "name": "Bank of Malta"},
+    {"id": 2, "name": "HSBC Malta"},
+    {"id": 3, "name": "Mapfre Middlesea"}
+  ],
+  "decisions": [
+    {
+      "decision_id": 1,
+      "case_reference_number": "ASF/2023/001",
+      "file_path": "/sites/default/files/decisions/asf_2023_001.pdf",
+      "file_id": 101,
+      "language": "en",
+      "complainant": "John Smith",
+      "sector_id": 1,
+      "issue_id": 1,
+      "product_id": 1,
+      "year_of_decision": 1672531200,
+      "outcome_id": 1,
+      "not_upheld_reason_id": null,
+      "published_date": 1672617600,
+      "published": 1,
+      "court_appeal": 0,
+      "complaint_id": 1001,
+      "provider_ids": [1, 2]
+    }
+  ],
+  "complaint_classification": [
+    {"complaint_id": 1001, "closure_date": 1672531200}
+  ],
+  "decision_providers": [
+    {"decision_provider_id": 1, "decision_id": 1, "provider_id": 1},
+    {"decision_provider_id": 2, "decision_id": 1, "provider_id": 2}
+  ]
+}
