@@ -405,6 +405,108 @@ server.delete('/directors/:id', (req, res) => {
   res.json({ success: true, message: 'Director removed' });
 });
 
+/**
+ * Utility: Generate Reference (oafs_cms_complaint_generate_reference)
+ */
+function generateComplaintRef(db) {
+    const year = new Date().getFullYear();
+    const count = db.get('complaints').size().value() + 1;
+    return `ASF ${String(count).padStart(3, '0')}/${year}`;
+}
+
+/**
+ * Step 1: Initialize Complaint (oafs_cms_create_complaint)
+ */
+server.post('/complaints/init', (req, res) => {
+    const { user_id, complainant_type_id, language = 'en' } = req.body;
+
+    if (!complainant_type_id) {
+        return res.status(400).json({ errors: { complainant_type_id: "Type is required" } });
+    }
+
+    const newComplaint = {
+        id: Date.now(),
+        user_id: Number(user_id) || 0,
+        status_id: 1, // Draft
+        complainant_type_id: Number(complainant_type_id),
+        complaint_section: 1,
+        language,
+        date_created: Math.floor(Date.now() / 1000),
+        date_updated: Math.floor(Date.now() / 1000),
+        // Sections initialized as empty objects to mimic Drupal tables
+        individual: {},
+        company: { directors: [] },
+        assistant: {},
+        service_provider: { provider_ids: [], product_name: "", reference: "" },
+        details: { additional_files: [] }
+    };
+
+    db().get('complaints').push(newComplaint).write();
+    res.status(201).json(newComplaint);
+});
+
+/**
+ * Step 2-4: Update Sections (Autosave/Manual Save)
+ * Handles Section 2 (Individual), 5 (Company), 6 (Assistant), etc.
+ */
+server.patch('/complaints/:id/section/:section', (req, res) => {
+    const sectionId = Number(req.params.section);
+    const complaintId = Number(req.params.id);
+    const complaint = db().get('complaints').find({ id: complaintId }).value();
+
+    if (!complaint) return res.status(404).json({ message: "Complaint not found" });
+
+    let updateData = {};
+    // Map URL sections to internal object keys
+    const sectionMap = { 2: 'individual', 5: 'company', 6: 'assistant', 7: 'service_provider', 8: 'details' };
+    const key = sectionMap[sectionId];
+
+    if (key) {
+        updateData[key] = { ...complaint[key], ...req.body };
+        // Update progress section if it's further than current
+        updateData.complaint_section = Math.max(complaint.complaint_section, sectionId);
+        updateData.date_updated = Math.floor(Date.now() / 1000);
+
+        db().get('complaints').find({ id: complaintId }).assign(updateData).write();
+        res.json(db().get('complaints').find({ id: complaintId }).value());
+    } else {
+        res.status(400).json({ message: "Invalid section" });
+    }
+});
+
+/**
+ * Final Submission (oafs_cms_complaint_submit Section 9)
+ */
+server.post('/complaints/:id/submit', (req, res) => {
+    const complaintId = Number(req.params.id);
+    const complaint = db().get('complaints').find({ id: complaintId }).value();
+
+    if (!complaint) return res.status(404).json({ message: "Not found" });
+
+    const reference = generateComplaintRef(db());
+    
+    db().get('complaints')
+        .find({ id: complaintId })
+        .assign({ 
+            status_id: 2, // Submitted
+            complaint_uid: reference,
+            date_originated: Math.floor(Date.now() / 1000)
+        })
+        .write();
+
+    res.json({ success: true, reference });
+});
+
+/**
+ * Fetch Complaints for a specific User (My Complaints)
+ */
+server.get('/users/:uid/complaints', (req, res) => {
+    const results = db().get('complaints')
+        .filter({ user_id: Number(req.params.uid) })
+        .value();
+    res.json(results);
+});
+
 server.use(router);
 
 server.listen(3001, () => {

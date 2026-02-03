@@ -143,5 +143,56 @@
   "decision_providers": [
     {"decision_provider_id": 1, "decision_id": 1, "provider_id": 1},
     {"decision_provider_id": 2, "decision_id": 1, "provider_id": 2}
+  ],
+  "complaints": [
+    {
+      "id": 1643900000000,
+      "user_id": 6,
+      "complaint_uid": "ASF 001/2026",
+      "status_id": 2,
+      "complainant_type_id": 1,
+      "complaint_section": 5,
+      "language": "en",
+      "date_created": 1738604423,
+      "date_updated": 1738605000,
+      "individual": {
+        "title_id": "1",
+        "name": "Harsh",
+        "surname": "Dudharejiya",
+        "email": "harsh@example.com",
+        "id_number": "123456M",
+        "house_number": "10",
+        "street_name": "Main St",
+        "city": "Amreli",
+        "country": "IN"
+      },
+      "company": {
+        "company_name": "",
+        "directors": []
+      },
+      "assistant": {
+        "name": "Jane",
+        "relation": "1"
+      },
+      "service_provider": {
+        "provider_ids": [1],
+        "product_name": "Home Loan",
+        "reference": "HL-999"
+      },
+      "details": {
+        "description": "Problem with interest rates",
+        "remedy": "Refund of fees",
+        "date_first_knowledge": 1738000000
+      }
+    }
+  ],
+  "titles": [
+    { "id": 1, "name": "Mr" },
+    { "id": 2, "name": "Ms" }
+  ],
+  "complainant_types": [
+    { "id": 1, "name": "Individual" },
+    { "id": 2, "name": "Joint" },
+    { "id": 4, "name": "Company" }
   ]
 }
