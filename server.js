@@ -445,10 +445,7 @@ server.post('/complaints/init', (req, res) => {
     res.status(201).json(newComplaint);
 });
 
-/**
- * Step 2-4: Update Sections (Autosave/Manual Save)
- * Handles Section 2 (Individual), 5 (Company), 6 (Assistant), etc.
- */
+// server.js
 server.patch('/complaints/:id/section/:section', (req, res) => {
     const sectionId = Number(req.params.section);
     const complaintId = Number(req.params.id);
@@ -456,14 +453,29 @@ server.patch('/complaints/:id/section/:section', (req, res) => {
 
     if (!complaint) return res.status(404).json({ message: "Complaint not found" });
 
-    let updateData = {};
-    // Map URL sections to internal object keys
-    const sectionMap = { 2: 'individual', 5: 'company', 6: 'assistant', 7: 'service_provider', 8: 'details' };
+    // UPDATE: Add '1' to the map. 
+    // We can map it to 'complainant_type_id' or just handle it as a top-level update.
+    const sectionMap = { 
+        1: 'root', // New entry
+        2: 'individual', 
+        5: 'company', 
+        6: 'assistant', 
+        7: 'service_provider', 
+        8: 'details' 
+    };
+    
     const key = sectionMap[sectionId];
 
     if (key) {
-        updateData[key] = { ...complaint[key], ...req.body };
-        // Update progress section if it's further than current
+        let updateData = {};
+        if (key === 'root') {
+            // Update top-level fields like complainant_type_id
+            updateData = { ...req.body };
+        } else {
+            // Update nested objects
+            updateData[key] = { ...complaint[key], ...req.body };
+        }
+        
         updateData.complaint_section = Math.max(complaint.complaint_section, sectionId);
         updateData.date_updated = Math.floor(Date.now() / 1000);
 
@@ -495,6 +507,41 @@ server.post('/complaints/:id/submit', (req, res) => {
         .write();
 
     res.json({ success: true, reference });
+});
+
+/**
+ * GET /complaints/user/:user_id
+ * Fetch all complaints belonging to a specific user
+ */
+server.get('/complaints/user/:user_id', (req, res) => {
+  const userId = Number(req.params.user_id);
+  const userComplaints = db()
+    .get('complaints')
+    .filter({ user_id: userId })
+    .value();
+
+  res.json(userComplaints || []);
+});
+
+/**
+ * GET /complaints/:id
+ * Fetch a single complaint by its unique internal ID
+ */
+server.get('/complaints/:id', (req, res) => {
+  const complaintId = Number(req.params.id);
+  const complaint = db()
+    .get('complaints')
+    .find({ id: complaintId })
+    .value();
+
+  if (!complaint) {
+    return res.status(404).json({ 
+      success: false, 
+      message: "Complaint not found" 
+    });
+  }
+
+  res.json(complaint);
 });
 
 /**

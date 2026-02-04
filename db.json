@@ -87,34 +87,100 @@
   "files": [],
   "directors": [],
   "sectors": [
-    {"id": 1, "name": "Banking"},
-    {"id": 2, "name": "Insurance"},
-    {"id": 3, "name": "Investments"}
+    {
+      "id": 1,
+      "name": "Banking"
+    },
+    {
+      "id": 2,
+      "name": "Insurance"
+    },
+    {
+      "id": 3,
+      "name": "Investments"
+    }
   ],
   "outcomes": [
-    {"id": 1, "name": "Upheld"},
-    {"id": 2, "name": "Not Upheld"},
-    {"id": 3, "name": "Partially Upheld"}
+    {
+      "id": 1,
+      "name": "Upheld"
+    },
+    {
+      "id": 2,
+      "name": "Not Upheld"
+    },
+    {
+      "id": 3,
+      "name": "Partially Upheld"
+    }
   ],
   "not_upheld_reasons": [
-    {"id": 1, "name": "Out of Jurisdiction"},
-    {"id": 2, "name": "No Merit"},
-    {"id": 3, "name": "Settled"}
+    {
+      "id": 1,
+      "name": "Out of Jurisdiction"
+    },
+    {
+      "id": 2,
+      "name": "No Merit"
+    },
+    {
+      "id": 3,
+      "name": "Settled"
+    }
   ],
   "issues": [
-    {"id": 1, "sector_id": 1, "name": "Loan Processing", "code": "LOAN-001"},
-    {"id": 2, "sector_id": 1, "name": "Credit Card Fees", "code": "CCF-001"},
-    {"id": 3, "sector_id": 2, "name": "Claim Denial", "code": "CLAIM-001"}
+    {
+      "id": 1,
+      "sector_id": 1,
+      "name": "Loan Processing",
+      "code": "LOAN-001"
+    },
+    {
+      "id": 2,
+      "sector_id": 1,
+      "name": "Credit Card Fees",
+      "code": "CCF-001"
+    },
+    {
+      "id": 3,
+      "sector_id": 2,
+      "name": "Claim Denial",
+      "code": "CLAIM-001"
+    }
   ],
   "products": [
-    {"id": 1, "sector_id": 1, "name": "Home Loan", "code": "HL-001"},
-    {"id": 2, "sector_id": 1, "name": "Credit Card", "code": "CC-001"},
-    {"id": 3, "sector_id": 2, "name": "Health Insurance", "code": "HI-001"}
+    {
+      "id": 1,
+      "sector_id": 1,
+      "name": "Home Loan",
+      "code": "HL-001"
+    },
+    {
+      "id": 2,
+      "sector_id": 1,
+      "name": "Credit Card",
+      "code": "CC-001"
+    },
+    {
+      "id": 3,
+      "sector_id": 2,
+      "name": "Health Insurance",
+      "code": "HI-001"
+    }
   ],
   "providers": [
-    {"id": 1, "name": "Bank of Malta"},
-    {"id": 2, "name": "HSBC Malta"},
-    {"id": 3, "name": "Mapfre Middlesea"}
+    {
+      "id": 1,
+      "name": "Bank of Malta"
+    },
+    {
+      "id": 2,
+      "name": "HSBC Malta"
+    },
+    {
+      "id": 3,
+      "name": "Mapfre Middlesea"
+    }
   ],
   "decisions": [
     {
@@ -134,15 +200,29 @@
       "published": 1,
       "court_appeal": 0,
       "complaint_id": 1001,
-      "provider_ids": [1, 2]
+      "provider_ids": [
+        1,
+        2
+      ]
     }
   ],
   "complaint_classification": [
-    {"complaint_id": 1001, "closure_date": 1672531200}
+    {
+      "complaint_id": 1001,
+      "closure_date": 1672531200
+    }
   ],
   "decision_providers": [
-    {"decision_provider_id": 1, "decision_id": 1, "provider_id": 1},
-    {"decision_provider_id": 2, "decision_id": 1, "provider_id": 2}
+    {
+      "decision_provider_id": 1,
+      "decision_id": 1,
+      "provider_id": 1
+    },
+    {
+      "decision_provider_id": 2,
+      "decision_id": 1,
+      "provider_id": 2
+    }
   ],
   "complaints": [
     {
@@ -175,7 +255,9 @@
         "relation": "1"
       },
       "service_provider": {
-        "provider_ids": [1],
+        "provider_ids": [
+          1
+        ],
         "product_name": "Home Loan",
         "reference": "HL-999"
       },
@@ -184,15 +266,53 @@
         "remedy": "Refund of fees",
         "date_first_knowledge": 1738000000
       }
+    },
+    {
+      "id": 1770209446583,
+      "user_id": 12,
+      "status_id": 1,
+      "complainant_type_id": 4,
+      "complaint_section": 1,
+      "language": "en",
+      "date_created": 1770209446,
+      "date_updated": 1770210862,
+      "individual": {},
+      "company": {
+        "directors": []
+      },
+      "assistant": {},
+      "service_provider": {
+        "provider_ids": [],
+        "product_name": "",
+        "reference": ""
+      },
+      "details": {
+        "additional_files": []
+      }
     }
   ],
   "titles": [
-    { "id": 1, "name": "Mr" },
-    { "id": 2, "name": "Ms" }
+    {
+      "id": 1,
+      "name": "Mr"
+    },
+    {
+      "id": 2,
+      "name": "Ms"
+    }
   ],
   "complainant_types": [
-    { "id": 1, "name": "Individual" },
-    { "id": 2, "name": "Joint" },
-    { "id": 4, "name": "Company" }
+    {
+      "id": 1,
+      "name": "Individual"
+    },
+    {
+      "id": 2,
+      "name": "Joint"
+    },
+    {
+      "id": 4,
+      "name": "Company"
+    }
   ]
 }
