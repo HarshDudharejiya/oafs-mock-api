@@ -85,7 +85,48 @@
     }
   ],
   "files": [],
-  "directors": [],
+  "directors": [
+    {
+      "id": 1770302462911,
+      "complaint_id": 1770299950085,
+      "full_name": "Dudharejiya Harshkumar Janakbhai",
+      "email": "harshjdudhrejiya@gmail.com",
+      "role": "Director",
+      "created_at": 1770302462
+    },
+    {
+      "id": 1770357860989,
+      "complaint_id": 1770299950085,
+      "full_name": "Dudharejiya Harshkumar Janakbhai",
+      "email": "harshjdudhrejiya@gmail.com",
+      "role": "Director",
+      "created_at": 1770357860
+    },
+    {
+      "id": 1770358852200,
+      "complaint_id": 1770302521106,
+      "full_name": "Dudharejiya Harshkumar Janakbhai",
+      "email": "harshjdudhrejiya@gmail.com",
+      "role": "Director",
+      "created_at": 1770358852
+    },
+    {
+      "id": 1770361132478,
+      "complaint_id": 1770361078862,
+      "full_name": "Dudharejiya Harshkumar Janakbhai",
+      "email": "harshjdudhrejiya@gmail.com",
+      "role": "Director",
+      "created_at": 1770361132
+    },
+    {
+      "id": 1770361382515,
+      "complaint_id": 1770302633317,
+      "full_name": "Dudharejiya Harshkumar Janakbhai",
+      "email": "harshjdudhrejiya@gmail.com",
+      "role": "Director",
+      "created_at": 1770361382
+    }
+  ],
   "sectors": [
     {
       "id": 1,
@@ -271,12 +312,257 @@
       "id": 1770209446583,
       "user_id": 12,
       "status_id": 1,
-      "complainant_type_id": 4,
-      "complaint_section": 1,
+      "complainant_type_id": "company",
+      "complaint_section": 8,
       "language": "en",
       "date_created": 1770209446,
-      "date_updated": 1770210862,
+      "date_updated": 1770729648,
+      "individual": {
+        "title_id": "1",
+        "name": "Harsh",
+        "surname": "Dudharejiya",
+        "id_number": "fsdfsf",
+        "passport_number": "sdasda",
+        "mobile_number": "06355040996",
+        "telephone_number": "06355040996",
+        "email": "harshjdudhrejiya@gmail.com",
+        "house_number": "asdasd",
+        "street_name": "asdasd",
+        "city": "Chalala",
+        "post_code": "365630",
+        "country": "IN"
+      },
+      "company": {
+        "directors": [],
+        "complainant_type_id": "company",
+        "company_number": "sdfgsdgsdfg",
+        "company_name": "gdsfgdfg",
+        "company_house_number": "fdgdfg",
+        "company_street_name": "dfgdfg",
+        "company_city": "Chalala",
+        "company_post_code": "365630",
+        "company_country": "IN",
+        "country_incorporation": "IN",
+        "employees": "8",
+        "annual_turnover": "dfgdfg",
+        "fs7_load": [
+          "171"
+        ],
+        "accounts_load": [
+          "172"
+        ],
+        "business_type": "other",
+        "other_info": "dfgdfgdfg",
+        "title_id": "1",
+        "name": "Harsh",
+        "surname": "Dudharejiya",
+        "id_number": "delete",
+        "passport_number": "gdfgdf",
+        "mobile_number": "06355040996",
+        "telephone_number": "dgdfgdf",
+        "email": "harshjdudhrejiya@gmail.com",
+        "house_number": "dfgdfg",
+        "street_name": "dfgdfg",
+        "city": "dfgdfg",
+        "post_code": "380009",
+        "country": "IN",
+        "add": "Add Director +"
+      },
+      "assistant": {
+        "title_id": "1",
+        "name": "Harsh",
+        "surname": "Dudharejiya",
+        "id_number": "fsdfsf",
+        "passport_number": "sdasda",
+        "mobile_number": "06355040996",
+        "telephone_number": "06355040996",
+        "email": "harshjdudhrejiya@gmail.com",
+        "house_number": "asdasd",
+        "street_name": "asdasd",
+        "city": "Chalala",
+        "post_code": "365630",
+        "country": "IN",
+        "relation": "lawyer"
+      },
+      "service_provider": {
+        "provider_ids": [],
+        "product_name": "sadasdas",
+        "reference": "asdadas",
+        "service_provider_id": {
+          "1": "1"
+        },
+        "complainant_type_id": "company"
+      },
+      "details": {
+        "additional_files": [
+          "175"
+        ],
+        "date_first_knowledge": "2003-12-01",
+        "complaint_submitted_provider": "1",
+        "complaint_to_provider_load": [
+          "173"
+        ],
+        "provider_response": "1",
+        "final_letter_load": [
+          "174"
+        ],
+        "merits_determined_court": "1",
+        "description": "asdadasd",
+        "reasons": "zxczxc",
+        "remedy": "zxczxc",
+        "data_protection": 1,
+        "complainant_type_id": "company"
+      }
+    },
+    {
+      "id": 1770302521106,
+      "user_id": 12,
+      "status_id": 2,
+      "complainant_type_id": "company",
+      "complaint_section": 1,
+      "language": "en",
+      "date_created": 1770302521,
+      "date_updated": 1770729509,
       "individual": {},
+      "company": {
+        "directors": []
+      },
+      "assistant": {},
+      "service_provider": {
+        "provider_ids": [],
+        "product_name": "",
+        "reference": ""
+      },
+      "details": {
+        "additional_files": []
+      },
+      "complaint_id": "1770302521106",
+      "complaint_uid": "ASF 006/2026",
+      "date_originated": 1770729518
+    },
+    {
+      "id": 1770302633317,
+      "user_id": 12,
+      "status_id": 1,
+      "complainant_type_id": "company",
+      "complaint_section": 8,
+      "language": "en",
+      "date_created": 1770302633,
+      "date_updated": 1770387808,
+      "individual": {},
+      "company": {
+        "directors": [
+          {
+            "full_name": "Harsh Dudharejiya",
+            "email": "harshjdudhrejiya@gmail.com"
+          },
+          {
+            "full_name": "Harsh Dudharejiyafff",
+            "email": "harshjdudhrejiyahh@gmail.com"
+          }
+        ],
+        "complaint_id": "1770302633317",
+        "company_number": "sdfsdfds",
+        "company_name": "sdfsdf",
+        "company_house_number": "sdfsdf",
+        "company_street_name": "sdfsdf",
+        "company_city": "Chalala",
+        "company_post_code": "365630",
+        "company_country": "IN",
+        "country_incorporation": "IN",
+        "employees": "4",
+        "annual_turnover": "dsfsdf",
+        "fs7_load": [
+          "133"
+        ],
+        "accounts_load": [
+          "134"
+        ],
+        "business_type": "sole_trader",
+        "other_info": "",
+        "title_id": "1",
+        "name": "Harsh",
+        "surname": "Dudharejiya",
+        "id_number": "fsdfsf",
+        "passport_number": "fsdfsdf",
+        "mobile_number": "06355040996",
+        "telephone_number": "06355040996",
+        "email": "harshjdudhrejiya@gmail.com",
+        "house_number": "fsdfdsf",
+        "street_name": "dsfsdfdsf",
+        "city": "Chalala",
+        "post_code": "365630",
+        "country": "IN",
+        "table": [
+          {
+            "full_name": "Harsh Dudharejiya",
+            "email": "harshjdudhrejiya@gmail.com",
+            "remove": "Remove"
+          },
+          {
+            "full_name": "Harsh Dudharejiyafff",
+            "email": "harshjdudhrejiyahh@gmail.com",
+            "remove": "Remove"
+          }
+        ],
+        "add": "Add Director +"
+      },
+      "assistant": {},
+      "service_provider": {
+        "provider_ids": [],
+        "product_name": "sdfsdfsd",
+        "reference": "12345",
+        "complaint_id": "1770302633317",
+        "service_provider_id": {
+          "1": "1"
+        }
+      },
+      "details": {
+        "additional_files": [
+          "137"
+        ],
+        "complaint_id": "1770302633317",
+        "date_first_knowledge": "2000-12-01",
+        "complaint_submitted_provider": "1",
+        "complaint_to_provider_load": [
+          "135"
+        ],
+        "provider_response": "1",
+        "final_letter_load": [
+          "136"
+        ],
+        "merits_determined_court": "1",
+        "description": "dsfsdfdsf",
+        "reasons": "sdfsdfdsf",
+        "remedy": "dsfsf",
+        "data_protection": 1
+      },
+      "complaint_id": "1770302633317"
+    },
+    {
+      "id": 1770387845930,
+      "user_id": 12,
+      "status_id": 1,
+      "complainant_type_id": "individual",
+      "complaint_section": 2,
+      "language": "en",
+      "date_created": 1770387845,
+      "date_updated": 1770387864,
+      "individual": {
+        "title_id": "1",
+        "name": "Harsh",
+        "surname": "Dudharejiya",
+        "id_number": "fsdfsf",
+        "passport_number": "adfdsfsdfsdf",
+        "mobile_number": "06355040996",
+        "telephone_number": "dsfds",
+        "email": "harshjdudhrejiya@gmail.com",
+        "house_number": "sdfsdf",
+        "street_name": "dsfsdf",
+        "city": "Chalala",
+        "post_code": "365630",
+        "country": "IN"
+      },
       "company": {
         "directors": []
       },

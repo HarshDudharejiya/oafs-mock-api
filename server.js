@@ -357,8 +357,6 @@ server.post('/directors', (req, res) => {
   if (!data.complaint_id) {
     errors.session = 'Complaint ID is missing from session/request';
   }
-  if (!data.first_name) errors.first_name = 'First name is required';
-  if (!data.last_name) errors.last_name = 'Last name is required';
 
   if (Object.keys(errors).length > 0) {
     return res.status(400).json({ success: false, errors });
@@ -369,8 +367,7 @@ server.post('/directors', (req, res) => {
   const newDirector = {
     id: Date.now(),
     complaint_id: data.complaint_id,
-    first_name: data.first_name,
-    last_name: data.last_name,
+    full_name: data.full_name,
     email: data.email || '',
     role: data.role || 'Director',
     created_at: Math.floor(Date.now() / 1000)
@@ -428,7 +425,7 @@ server.post('/complaints/init', (req, res) => {
         id: Date.now(),
         user_id: Number(user_id) || 0,
         status_id: 1, // Draft
-        complainant_type_id: Number(complainant_type_id),
+        complainant_type_id: String(complainant_type_id),
         complaint_section: 1,
         language,
         date_created: Math.floor(Date.now() / 1000),
