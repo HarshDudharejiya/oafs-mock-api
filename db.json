@@ -265,6 +265,20 @@
       "provider_id": 2
     }
   ],
+  "payments": [
+    {
+      "id": 1770819122881,
+      "complaint_id": 1770302521106,
+      "amount_in_cents": 2500,
+      "payment_type": 1,
+      "payment_state": 1,
+      "tokened": 0,
+      "date_opened": 1770819122,
+      "status": 1,
+      "created_at": 1770819122
+    }
+  ],
+  "payment_links": [],
   "complaints": [
     {
       "id": 1643900000000,
@@ -311,7 +325,7 @@
     {
       "id": 1770209446583,
       "user_id": 12,
-      "status_id": 1,
+      "status_id": 7,
       "complainant_type_id": "company",
       "complaint_section": 8,
       "language": "en",
@@ -417,7 +431,7 @@
     {
       "id": 1770302521106,
       "user_id": 12,
-      "status_id": 2,
+      "status_id": 4,
       "complainant_type_id": "company",
       "complaint_section": 1,
       "language": "en",
@@ -443,7 +457,7 @@
     {
       "id": 1770302633317,
       "user_id": 12,
-      "status_id": 1,
+      "status_id": 2,
       "complainant_type_id": "company",
       "complaint_section": 8,
       "language": "en",
@@ -537,7 +551,9 @@
         "remedy": "dsfsf",
         "data_protection": 1
       },
-      "complaint_id": "1770302633317"
+      "complaint_id": "1770302633317",
+      "complaint_uid": "ASF 006/2026",
+      "date_originated": 1770811943
     },
     {
       "id": 1770387845930,

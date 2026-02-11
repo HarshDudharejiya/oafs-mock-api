@@ -551,6 +551,118 @@ server.get('/users/:uid/complaints', (req, res) => {
     res.json(results);
 });
 
+/**
+ * POST /complaints/:id/payments
+ * Create a payment record
+ */
+server.post('/complaints/:id/payments', (req, res) => {
+  const db = router.db;
+  const complaintId = Number(req.params.id);
+  
+  const payment = {
+    id: Date.now(),
+    complaint_id: complaintId,
+    ...req.body,
+    status: req.body.payment_state || 1, // Default Pending
+    created_at: Math.floor(Date.now() / 1000)
+  };
+
+  db.get('payments').push(payment).write();
+  res.status(201).json(payment);
+});
+
+/**
+ * PATCH /payments/:id/status
+ * Update payment status and GPG details
+ */
+server.patch('/payments/:id/status', (req, res) => {
+  const db = router.db;
+  const paymentId = Number(req.params.id);
+  
+  const payment = db.get('payments').find({ id: paymentId }).value();
+  if (!payment) return res.status(404).json({ message: "Payment not found" });
+
+  const updateData = {
+    ...req.body,
+    date_completed: Math.floor(Date.now() / 1000)
+  };
+
+  db.get('payments').find({ id: paymentId }).assign(updateData).write();
+  
+  // If payment is authorized (State 3), we could also update the complaint status here
+  if (req.body.payment_state === 3) {
+      db.get('complaints')
+        .find({ id: payment.complaint_id })
+        .assign({ status_id: 3 }) // e.g., 3 = Paid/Processing
+        .write();
+  }
+
+  res.json(db.get('payments').find({ id: paymentId }).value());
+});
+
+/**
+ * GET /complaints/:id/payments/successful
+ */
+server.get('/complaints/:id/payments/successful', (req, res) => {
+  const db = router.db;
+  const complaintId = Number(req.params.id);
+  
+  const payment = db.get('payments')
+    .filter({ complaint_id: complaintId, payment_state: 3 }) // 3 = Authorized
+    .last()
+    .value();
+
+  if (!payment) return res.status(404).json(null);
+  res.json(payment);
+});
+
+/**
+ * POST /complaints/:id/payment-link
+ * Generates a unique token for external payment access
+ */
+server.post('/complaints/:id/payment-link', (req, res) => {
+  const db = router.db;
+  const complaintId = Number(req.params.id);
+  const token = Math.random().toString(36).substring(2, 15);
+
+  const link = {
+    token,
+    complaint_id: complaintId,
+    valid: true,
+    expires_at: Math.floor(Date.now() / 1000) + (86400 * 7) // 7 days
+  };
+
+  db.get('payment_links').push(link).write();
+  res.json({ token });
+});
+
+/**
+ * GET /payment-links/:token/verify
+ */
+server.get('/payment-links/:token/verify', (req, res) => {
+  const db = router.db;
+  const link = db.get('payment_links').find({ token: req.params.token }).value();
+  
+  if (!link) return res.json({ valid: false });
+  
+  const isExpired = link.expires_at < Math.floor(Date.now() / 1000);
+  res.json({ valid: link.valid && !isExpired });
+});
+
+/**
+ * GET /payment-links/:token/complaint
+ * Returns complaint data via token (for the public payment page)
+ */
+server.get('/payment-links/:token/complaint', (req, res) => {
+  const db = router.db;
+  const link = db.get('payment_links').find({ token: req.params.token }).value();
+  
+  if (!link) return res.status(404).json({ message: "Invalid token" });
+
+  const complaint = db.get('complaints').find({ id: link.complaint_id }).value();
+  res.json(complaint);
+});
+
 server.use(router);
 
 server.listen(3001, () => {
